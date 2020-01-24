@@ -1,0 +1,13 @@
+ANDROID
+cd C:\Users\Janielle Gregorio\AppData\Local\Android\Sdk\emulator
+emulator -avd JanielleEmulator
+
+Allow Remote USB Debugging, then check:
+adb devices
+adb shell
+//execute the below command after launching the app you want to know the app package and app activity
+dumpsys window windows | grep -E 'mcurrentFocus|mFocusedApp'​
+--> mFocusedApp=AppWindowToken{4671110 token=Token{a5b11d3 ActivityRecord{73d5fc2 u0 io.appium.android.apis/.ApiDemos t970}}}
+From above output:
+"io.appium.android.apis​" is your app package.
+".ApiDemos​" in your app activity.
